@@ -10,7 +10,9 @@ export default function Container({ children }: Props) {
     <div className='flex flex-col items-center'>
       <NavBar />
       <br />
-      {children}
+      <div className='container'>{children}</div>
+      <br />
+      <br />
     </div>
   );
 }

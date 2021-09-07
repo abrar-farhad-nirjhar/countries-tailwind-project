@@ -1,10 +1,14 @@
 import React from 'react';
+import CountriesProvider from '../../contexts/countries-context';
 import Container from '../components/container';
+import CountryList from './countries-list';
 
 export default function Countries() {
   return (
-    <Container>
-      <div>Countries</div>
-    </Container>
+    <CountriesProvider>
+      <Container>
+        <CountryList />
+      </Container>
+    </CountriesProvider>
   );
 }
