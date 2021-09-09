@@ -8,15 +8,17 @@ interface Props {
 }
 interface Country {
   country: any;
+  loading: boolean;
 }
 
 export const CountryContext = createContext({
   country: {},
+  loading: true,
 } as Country);
 
 export default function CountryProvider({ code, children }: Props) {
   const [country, setCountry] = useState<any>({});
-  const { data } = useQuery(COUNTRY, {
+  const { data, loading } = useQuery(COUNTRY, {
     variables: {
       code,
     },
@@ -25,7 +27,7 @@ export default function CountryProvider({ code, children }: Props) {
     },
   });
   return (
-    <CountryContext.Provider value={{ country }}>
+    <CountryContext.Provider value={{ country, loading }}>
       {children}
     </CountryContext.Provider>
   );

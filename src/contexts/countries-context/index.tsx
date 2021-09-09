@@ -4,6 +4,7 @@ import { COUNTRIES } from '../../graphql/query/countries.query';
 
 export const CountriesContext = createContext({
   countries: [],
+  loading: true,
 });
 
 interface Props {
@@ -11,14 +12,14 @@ interface Props {
 }
 export default function CountriesProvider({ children }: Props) {
   const [countries, setCountries] = useState<any>([]);
-  const { data } = useQuery(COUNTRIES, {
+  const { data, loading } = useQuery(COUNTRIES, {
     onCompleted() {
       setCountries(data.countries);
     },
   });
 
   return (
-    <CountriesContext.Provider value={{ countries: countries }}>
+    <CountriesContext.Provider value={{ countries: countries, loading }}>
       {children}
     </CountriesContext.Provider>
   );

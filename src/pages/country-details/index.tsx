@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import CountryProvider from '../../contexts/country-context';
-import Container from '../components/container';
 import Details from '../components/country-details';
 
 export default function CountryDetails() {
@@ -9,9 +8,7 @@ export default function CountryDetails() {
 
   return (
     <CountryProvider code={params.code}>
-      <Container>
-        <Details />
-      </Container>
+      <Details />
     </CountryProvider>
   );
 }

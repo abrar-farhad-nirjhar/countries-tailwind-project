@@ -4,6 +4,7 @@ import { LANGUAGES } from '../../graphql/query/languages.query';
 
 export const LanguagesContext = createContext({
   languages: [],
+  loading: true,
 });
 
 interface Props {
@@ -11,14 +12,13 @@ interface Props {
 }
 export default function LanguagesProvider({ children }: Props) {
   const [languages, setLanguages] = useState<any>([]);
-  const { data } = useQuery(LANGUAGES, {
+  const { data, loading } = useQuery(LANGUAGES, {
     onCompleted() {
-      console.log(data);
       setLanguages(data.languages);
     },
   });
   return (
-    <LanguagesContext.Provider value={{ languages }}>
+    <LanguagesContext.Provider value={{ languages, loading }}>
       {children}
     </LanguagesContext.Provider>
   );

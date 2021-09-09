@@ -8,6 +8,8 @@ import Languages from './pages/languages';
 import CountryDetails from './pages/country-details';
 import CountriesProvider from './contexts/countries-context';
 import LanguagesProvider from './contexts/languages-context';
+import ContinentDetails from './pages/continent-details';
+import ContinentsProvider from './contexts/continents-context';
 
 function App() {
   return (
@@ -20,7 +22,12 @@ function App() {
             </CountriesProvider>
           </Route>
           <Route path='/country-details/:code' component={CountryDetails} />
-          <Route path='/continents' component={Continents} />
+          <Route path='/continents' exact>
+            <ContinentsProvider>
+              <Continents />
+            </ContinentsProvider>
+          </Route>
+          <Route path='/continents/:code' component={ContinentDetails} />
           <Route path='/languages'>
             <LanguagesProvider>
               <Languages />

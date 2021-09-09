@@ -4,19 +4,20 @@ import { CONTINENTS } from '../../graphql/query/continents.query';
 
 export const ContinentsContext = createContext({
   continents: [],
+  loading: true,
 });
 interface Props {
   children: JSX.Element;
 }
 export default function ContinentsProvider({ children }: Props) {
   const [continents, setContinents] = useState<any>([]);
-  const { data } = useQuery(CONTINENTS, {
+  const { data, loading } = useQuery(CONTINENTS, {
     onCompleted() {
       setContinents(data.continents);
     },
   });
   return (
-    <ContinentsContext.Provider value={{ continents }}>
+    <ContinentsContext.Provider value={{ continents, loading }}>
       {children}
     </ContinentsContext.Provider>
   );
