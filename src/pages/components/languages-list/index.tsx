@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
-import { LanguagesContext } from '../../../contexts/languages-context';
+import React from 'react';
 import LanguagesItem from './languages-item';
 
-export default function LanguagesList() {
-  const { languages } = useContext(LanguagesContext);
-  const languagesList = languages.map((language, index) => (
+interface Props {
+  languages: any;
+}
+
+export default function LanguagesList({ languages }: Props) {
+  const languagesList = languages.map((language: any, index: number) => (
     <LanguagesItem language={language} key={index} />
   ));
   return (
