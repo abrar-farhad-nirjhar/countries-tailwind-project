@@ -11,15 +11,17 @@ export default function ContinentDetails() {
   }
   return (
     <Container>
-      <div className='text-center'>
-        <div className='text-5xl font-bold text-green-500'>
+      <div>
+        <div className='text-center text-5xl font-bold text-green-500'>
           {continent?.name}
         </div>
         <br />
-        <div className='text-md font-bold text-green-500'>
+        <div className='text-center text-md font-bold text-green-500'>
           {continent?.code}
         </div>
-        <div className='text-md font-bold text-green-500'>Countries</div>
+        <div className='text-center text-md font-bold text-green-500'>
+          Countries
+        </div>
         <br />
         {continent && <CountryList countries={continent?.countries} />}
       </div>
