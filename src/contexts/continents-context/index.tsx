@@ -12,7 +12,6 @@ export default function ContinentsProvider({ children }: Props) {
   const [continents, setContinents] = useState<any>([]);
   const { data } = useQuery(CONTINENTS, {
     onCompleted() {
-      console.log(data);
       setContinents(data.continents);
     },
   });

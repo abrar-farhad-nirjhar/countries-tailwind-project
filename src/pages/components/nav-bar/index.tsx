@@ -6,7 +6,7 @@ import NavElements from './nav-elements';
 export default function NavBar() {
   const [menuCollapsed, setMenuCollapsed] = useState<Boolean>(false);
   return (
-    <div className='w-full bg-green-500 text-white'>
+    <div className=' w-full bg-green-500 text-white'>
       <nav className='w-full flex justify-between items-center p-3 '>
         <div className='text-lg font-bold flex items-center gap-5'>
           <img src={WorldWide} alt='globe-logo' className='w-10' />
