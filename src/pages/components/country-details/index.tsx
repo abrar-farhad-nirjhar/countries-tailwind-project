@@ -12,7 +12,7 @@ export default function CountryDetails() {
   }
   return (
     <Container>
-      <div className='text-center'>
+      <div>
         <div className='flex items-center gap-6 w-full justify-center'>
           <img
             src={`https://www.countryflags.io/${country.code}/shiny/64.png`}
@@ -30,7 +30,7 @@ export default function CountryDetails() {
 
         <br />
         <Link to={`/continents/${country.continent?.code}`}>
-          <div className='text-2xl font-bold leading-7 text-green-500 sm:text-3xl sm:truncate'>
+          <div className='text-center text-2xl font-bold leading-7 text-green-500 sm:text-3xl sm:truncate'>
             {country.continent?.name}
           </div>
         </Link>
@@ -45,7 +45,7 @@ export default function CountryDetails() {
           </span>
         </div>
         <br />
-        <div className='text-2xl font-bold leading-7 text-green-500 sm:text-3xl sm:truncate'>
+        <div className='text-center text-2xl font-bold leading-7 text-green-500 sm:text-3xl sm:truncate'>
           Languages
         </div>
         <br />
